@@ -1,0 +1,44 @@
+.App {
+  max-width: 880px;
+  margin: 0 auto;
+}
+
+h1 {
+  width: 250px;
+  margin: 0 auto;
+  text-emphasis: open;
+  text-emphasis-position: under;
+}
+.projects-container {
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.project {
+  width: 300px;
+  height: 250px;
+  margin: 40px;
+  color: black;
+  border: 5px solid coral;
+  border-radius: 5px;
+}
+
+.project h2 {
+  margin-left: 20px;
+}
+
+.project p {
+  margin-left: 20px;
+}
+
+.actions {
+  width: 95%;
+  height: 30px;
+  text-align: center;
+  margin: 0 auto;
+  background-color: lightblue;
+
+  border: 1px solid yellow;
+}

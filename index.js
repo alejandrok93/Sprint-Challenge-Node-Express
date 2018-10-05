@@ -1,9 +1,13 @@
 //import libraries
 const express = require("express");
+const cors = require("cors");
+const helmet = require("helmet");
 
 //set up middleware
 const server = express();
 server.use(express.json());
+server.use(cors());
+server.use(helmet());
 
 //set up routers
 const projectRouters = require("./routers/ProjectRoutes.js");
