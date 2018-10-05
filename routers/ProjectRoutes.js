@@ -118,25 +118,25 @@ router.put("/:id", (req, res) => {
 });
 
 //Delete existing post
-router.delete(":/id", (req, res) => {
-  const id = req.params.id;
-  if (!id) {
-    res.status(500).json({ error: "There was an error with the request" });
-  }
+// router.delete(":/id", (req, res) => {
+//   const id = req.params.id;
+//   if (!id) {
+//     res.status(500).json({ error: "There was an error with the request" });
+//   }
 
-  const promise = projectsDb.remove(id);
-  promise
-    .then(numOfRecords => {
-      if (numOfRecords === 0) {
-        res
-          .status(500)
-          .json({ error: "There was an error removing the project" });
-      }
-      res.status(200).json({ message: "Project was removed" });
-    })
-    .catch(err =>
-      res.status(500).json({ error: "There was an error removing the project" })
-    );
-});
+//   const promise = projectsDb.remove(id);
+//   promise
+//     .then(numOfRecords => {
+//       if (numOfRecords === 0) {
+//         res
+//           .status(500)
+//           .json({ error: "There was an error removing the project" });
+//       }
+//       res.status(200).json({ message: "Project was removed" });
+//     })
+//     .catch(err =>
+//       res.status(500).json({ error: "There was an error removing the project" })
+//     );
+// });
 
 module.exports = router;

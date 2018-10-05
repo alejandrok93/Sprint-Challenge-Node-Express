@@ -14,6 +14,7 @@ server.use("/actions", actionsRouters);
 
 //import db
 const projectsDb = require("./data/helpers/projectModel");
+const actionsDb = require("./data/helpers/actionModel");
 
 //route handlers
 server.get("/", (req, res) => {
@@ -33,6 +34,38 @@ server.get("/projects/:id/actions", (req, res) => {
       res
         .status(500)
         .json({ error: "There was an error retrieving the actions" })
+    );
+});
+
+//Delete action
+server.delete("/actions/:id", (req, res) => {
+  const id = req.params.id;
+  if (!id) {
+    res.status(500).json({ error: "There was an error with your request" });
+  }
+  const promise = actionsDb.remove(id);
+  promise
+    .then(numOfRecords =>
+      res.status(200).json({ message: "Actions was removed succesfully" })
+    )
+    .catch(err =>
+      res.status(500).json({ error: "There was an error removing the action" })
+    );
+});
+
+//Delete project
+server.delete("/projects/:id", (req, res) => {
+  const id = req.params.id;
+  if (!id) {
+    res.status(500).json({ error: "There was an error with your request" });
+  }
+  const promise = projectsDb.remove(id);
+  promise
+    .then(numOfRecords =>
+      res.status(200).json({ message: "Project was removed succesfully" })
+    )
+    .catch(err =>
+      res.status(500).json({ error: "There was an error removing the Project" })
     );
 });
 
