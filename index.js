@@ -12,6 +12,9 @@ const actionsRouters = require("./routers/ActionsRoutes.js");
 server.use("/projects", projectRouters);
 server.use("/actions", actionsRouters);
 
+//import db
+const projectsDb = require("./data/helpers/projectModel");
+
 //route handlers
 server.get("/", (req, res) => {
   res.status(200).send("<h1>Projects app</h1>");
@@ -20,3 +23,5 @@ server.get("/", (req, res) => {
 //listen
 const port = 9000;
 server.listen(port, () => console.log("Server is running"));
+
+//Delete route - > is not working inside projectRouters
