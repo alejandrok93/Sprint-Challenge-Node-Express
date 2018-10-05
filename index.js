@@ -20,6 +20,22 @@ server.get("/", (req, res) => {
   res.status(200).send("<h1>Projects app</h1>");
 });
 
+//Get all actions for project
+server.get("/projects/:id/actions", (req, res) => {
+  const id = req.params.id;
+  if (!id) {
+    res.status(500).json({ error: "There was an error with the request" });
+  }
+  const promise = projectsDb.getProjectActions(id);
+  promise
+    .then(actions => res.status(200).json(actions))
+    .catch(err =>
+      res
+        .status(500)
+        .json({ error: "There was an error retrieving the actions" })
+    );
+});
+
 //listen
 const port = 9000;
 server.listen(port, () => console.log("Server is running"));

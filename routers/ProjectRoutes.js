@@ -78,6 +78,22 @@ router.post("/", (req, res) => {
     );
 });
 
+// Get all actions for a project
+// router.get(":id/actions", (req, res) => {
+//   const id = req.params.id;
+//   if (!id) {
+//     res.status(500).json({ error: "There was an error with the request" });
+//   }
+//   const promise = projectsDb.getProjectActions(id);
+//   promise
+//     .then(actions => res.status(200).json(actions))
+//     .catch(err =>
+//       res
+//         .status(500)
+//         .json({ error: "There was an error retrieving the actions" })
+//     );
+// });
+
 //Update existing post
 router.put("/:id", (req, res) => {
   const id = req.params.id;
