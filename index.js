@@ -37,7 +37,7 @@ server.get("/projects/:id/actions", (req, res) => {
     );
 });
 
-//Delete action
+//Delete action  -> added to index.js because it was not working inside of routes file
 server.delete("/actions/:id", (req, res) => {
   const id = req.params.id;
   if (!id) {
@@ -53,7 +53,7 @@ server.delete("/actions/:id", (req, res) => {
     );
 });
 
-//Delete project
+//Delete project  -> added to index.js because it was not working inside of routes file
 server.delete("/projects/:id", (req, res) => {
   const id = req.params.id;
   if (!id) {

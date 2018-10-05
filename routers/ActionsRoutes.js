@@ -96,25 +96,25 @@ router.put("/:id", (req, res) => {
 });
 
 //Delete existing action
-router.delete(":/id", (req, res) => {
-  const id = req.params.id;
-  if (!id) {
-    res.status(500).json({ error: "There was an error with the request" });
-  }
+// router.delete(":/id", (req, res) => {
+//   const id = req.params.id;
+//   if (!id) {
+//     res.status(500).json({ error: "There was an error with the request" });
+//   }
 
-  const promise = actionsDb.remove(id);
-  promise
-    .then(numOfRecords => {
-      if (numOfRecords === 0) {
-        res
-          .status(500)
-          .json({ error: "There was an error removing the action" });
-      }
-      res.status(200).json({ message: "action was removed" });
-    })
-    .catch(err =>
-      res.status(500).json({ error: "There was an error removing the action" })
-    );
-});
+//   const promise = actionsDb.remove(id);
+//   promise
+//     .then(numOfRecords => {
+//       if (numOfRecords === 0) {
+//         res
+//           .status(500)
+//           .json({ error: "There was an error removing the action" });
+//       }
+//       res.status(200).json({ message: "action was removed" });
+//     })
+//     .catch(err =>
+//       res.status(500).json({ error: "There was an error removing the action" })
+//     );
+// });
 
 module.exports = router;
